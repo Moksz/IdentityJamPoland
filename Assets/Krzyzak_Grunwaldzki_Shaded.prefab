@@ -723,6 +723,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 401684099099705663}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 5b70fea594f318e4188ea8dced0e9d78,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6763538766827957711}
     - targetCorrespondingSourceObject: {fileID: 4519537183621174618, guid: 5b70fea594f318e4188ea8dced0e9d78,
         type: 3}
       insertIndex: -1
@@ -846,6 +850,7 @@ MonoBehaviour:
   m_StoppingDistance: 4
   attackIntervalLow: 0.5
   attackIntervalHigh: 2
+  combatStateController: {fileID: 6763538766827957711}
 --- !u!50 &474526144218852783
 Rigidbody2D:
   serializedVersion: 4
@@ -918,6 +923,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1509063, y: 4.478977}
   m_EdgeRadius: 0
+--- !u!114 &6763538766827957711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6485001636281503645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6393cc043e2ba3a4eae54259c53ab01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6962576438362159994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4519537183621174618, guid: 5b70fea594f318e4188ea8dced0e9d78,

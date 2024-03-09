@@ -20,6 +20,8 @@ public class EnemyController : MonoBehaviour
 
     private float m_SmoothMovementCurrentVelocity;
 
+    public CombatStateController combatStateController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,16 +38,61 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         float moveVector;
-        if (Vector3.Distance(m_PlayerController.transform.position, transform.position) > m_StoppingDistance)
+
+        if (m_PlayerController.combatStateController.combatState is CombatState.LowAttack or CombatState.HighAttack)
         {
-            m_Animator.SetBool("Move", true);
-            moveVector = -1;
+            float distance = Vector3.Distance(m_PlayerController.transform.position, transform.position);
+            if (distance < m_StoppingDistance + 2)
+            {
+                m_Animator.SetBool("Move", false);
+                m_Animator.SetBool("MoveBack", transform);
+                moveVector = 1;
+            }
+            else if (distance > m_StoppingDistance + 3)
+            {
+                m_Animator.SetBool("Move", true);
+                m_Animator.SetBool("MoveBack", false);
+                moveVector = -1;
+            }
+            else
+            {
+                m_Animator.SetBool("Move", false);
+                moveVector = 0;
+            }
         }
         else
         {
-            m_Animator.SetBool("Move", false);
-            moveVector = 0;
+            if (Vector3.Distance(m_PlayerController.transform.position, transform.position) > m_StoppingDistance)
+            {
+                m_Animator.SetBool("Move", true);
+                m_Animator.SetBool("MoveBack", false);
+                moveVector = -1;
+            }
+            else
+            {
+                m_Animator.SetBool("Move", false);
+                moveVector = 0;
+            }
         }
+
+        // if (Vector3.Distance(m_PlayerController.transform.position, transform.position) < m_StoppingDistance + 3 &&
+        //     m_PlayerController.combatStateController.combatState is CombatState.LowAttack or CombatState.HighAttack)
+        // {
+        //     m_Animator.SetBool("Move", false);
+        //     m_Animator.SetBool("MoveBack", true);
+        //     moveVector = 1;
+        // }
+        // else if (Vector3.Distance(m_PlayerController.transform.position, transform.position) > m_StoppingDistance)
+        // {
+        //     m_Animator.SetBool("Move", true);
+        //     m_Animator.SetBool("MoveBack", false);
+        //     moveVector = -1;
+        // }
+        // else
+        // {
+        //     m_Animator.SetBool("Move", false);
+        //     moveVector = 0;
+        // }
 
         float smoothDamp = Mathf.SmoothDamp(m_Rigidbody2D.velocity.x, moveVector * m_MoveSpeed, ref m_SmoothMovementCurrentVelocity, 0.1f);
 
@@ -59,24 +106,45 @@ public class EnemyController : MonoBehaviour
         {
             yield return new WaitUntil(() => Vector3.Distance(m_PlayerController.transform.position, transform.position) < m_StoppingDistance + 2);
 
-            string attackType;
-            if (Random.value > 0.5f)
+            switch (m_PlayerController.combatStateController.combatState)
             {
-                attackType = "HighAttack";
-            }
-            else
-            {
-                attackType = "LowAttack";
-            }
+                case CombatState.HighAttack:
+                    m_Animator.SetBool("HighDefence", true);
+                    yield return new WaitUntil(() => m_PlayerController.combatStateController.combatState != CombatState.HighAttack);
+                    yield return new WaitForSeconds(0.1f);
+                    m_Animator.SetBool("HighDefence", false);
+                    break;
+                case CombatState.LowAttack:
+                    m_Animator.SetBool("LowDefence", true);
+                    yield return new WaitUntil(() => m_PlayerController.combatStateController.combatState != CombatState.LowAttack);
+                    yield return new WaitForSeconds(0.1f);
+                    m_Animator.SetBool("LowDefence", false);
+                    break;
+                case CombatState.Idle:
+                case CombatState.LowDefence:
+                case CombatState.HighDefence:
+                default:
+                {
+                    string attackType;
+                    if (Random.value > 0.5f)
+                    {
+                        attackType = "HighAttack";
+                    }
+                    else
+                    {
+                        attackType = "LowAttack";
+                    }
 
-            m_Animator.SetBool(attackType, true);
-            yield return new WaitForSeconds(Random.Range(0f, 1f));
-            if (Vector3.Distance(m_PlayerController.transform.position, transform.position) < m_StoppingDistance)
-            {
-                m_Animator.SetBool(attackType, false);
+                    m_Animator.SetBool(attackType, true);
+                    yield return new WaitForSeconds(Random.Range(0.3f, 1f));
+                    // if (Vector3.Distance(m_PlayerController.transform.position, transform.position) < m_StoppingDistance)
+                    // {
+                    m_Animator.SetBool(attackType, false);
+                    yield return new WaitForSeconds(Random.Range(attackIntervalLow, attackIntervalHigh));
+                    // }
+                    break;
+                }
             }
-
-            yield return new WaitForSeconds(Random.Range(attackIntervalLow, attackIntervalHigh));
         }
     }
 
@@ -84,5 +152,6 @@ public class EnemyController : MonoBehaviour
     {
         if (!m_Rigidbody2D) m_Rigidbody2D = GetComponent<Rigidbody2D>();
         if (!m_Animator) m_Animator = GetComponent<Animator>();
+        if (!combatStateController) combatStateController = GetComponent<CombatStateController>();
     }
 }
