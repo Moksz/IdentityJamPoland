@@ -21,7 +21,7 @@ public class CombatStateController : MonoBehaviour
                 // if (combatStateController.attack)
                 // {
                 if (combatState == CombatState.HighAttack && enemyController.combatStateController.combatState != CombatState.HighDefence ||
-                    combatState == CombatState.LowAttack && enemyController.combatStateController.combatState != CombatState.LowAttack)
+                    combatState == CombatState.LowAttack && enemyController.combatStateController.combatState != CombatState.LowDefence)
                 {
                     enemyController.hpController.Hp -= 1;
                     Debug.Log("enemy damaged");
