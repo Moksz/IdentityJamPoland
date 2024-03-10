@@ -19,10 +19,13 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnNextEnemy()
     {
         m_CanvasNumber.text = m_NumberOfEnemies.ToString();
-        
-        EnemyController enemy = Instantiate(m_EnemyPrefab, transform.position, Quaternion.identity);
-        enemy.hpController.OnDeath.AddListener(SpawnNextEnemy);
-        m_NumberOfEnemies--;
+
+        if (m_NumberOfEnemies > 0)
+        {
+            EnemyController enemy = Instantiate(m_EnemyPrefab, transform.position, Quaternion.identity);
+            enemy.hpController.OnDeath.AddListener(SpawnNextEnemy);
+            m_NumberOfEnemies--;
+        }
 
         if (m_NumberOfEnemies == 0)
         {

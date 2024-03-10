@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private float m_SmoothTime;
 
-    private Vector2 m_MoveVector;
+    private float m_MoveVector;
 
 
     private float m_SmoothMovementCurrentVelocity;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
         }
         else
         {
-            float smoothDamp = Mathf.SmoothDamp(m_Rigidbody2D.velocity.x, m_MoveVector.x * m_MoveSpeed, ref m_SmoothMovementCurrentVelocity, m_SmoothTime);
+            float smoothDamp = Mathf.SmoothDamp(m_Rigidbody2D.velocity.x, m_MoveVector * m_MoveSpeed, ref m_SmoothMovementCurrentVelocity, m_SmoothTime);
             m_Rigidbody2D.velocity = new Vector2(smoothDamp, m_Rigidbody2D.velocity.y);
         }
     }
@@ -57,9 +57,9 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        m_MoveVector = context.ReadValue<Vector2>();
+        m_MoveVector = context.ReadValue<float>();
 
-        switch (m_MoveVector.x)
+        switch (m_MoveVector)
         {
             case 0:
                 m_Animator.SetBool("Move", false);
