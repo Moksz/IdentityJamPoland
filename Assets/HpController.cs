@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HpController : MonoBehaviour
@@ -16,12 +17,12 @@ public class HpController : MonoBehaviour
         {
             if (value < m_Hp)
             {
-                m_OnDamage.Invoke();
+                OnDamage.Invoke();
             }
             
             if (value <= 0 && m_Hp > 0)
             {
-                m_OnDeath.Invoke();
+                OnDeath.Invoke();
             }
             
             m_Hp = value;
@@ -34,8 +35,8 @@ public class HpController : MonoBehaviour
 
     [SerializeField] private Image m_HpBar;
 
-    [SerializeField] private UnityEvent m_OnDeath;
-    [SerializeField] private UnityEvent m_OnDamage;
+    [FormerlySerializedAs("m_OnDeath")] public UnityEvent OnDeath;
+    [FormerlySerializedAs("m_OnDamage")] public  UnityEvent OnDamage;
 
     // Start is called before the first frame update
     void Start()

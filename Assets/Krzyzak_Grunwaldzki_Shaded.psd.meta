@@ -18354,66 +18354,6 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 1
-  - name: Grupa 1
-    spriteName: 
-    isGroup: 1
-    parentIndex: 0
-    spriteID: ba7c7b2555dc3e94e9259b029b85bfae
-    layerID: 82
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 1
-  - name: Fingers
-    spriteName: Fingers
-    isGroup: 0
-    parentIndex: 1
-    spriteID: 307d5aa1431e6774a8469ea34e683e46
-    layerID: 81
-    mosaicPosition: {x: 4, y: 924}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Sword
-    spriteName: Sword
-    isGroup: 0
-    parentIndex: 1
-    spriteID: f79c0b6b6d56d314583c1ee580020489
-    layerID: 80
-    mosaicPosition: {x: 725, y: 4}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Thumb
-    spriteName: Thumb
-    isGroup: 0
-    parentIndex: 1
-    spriteID: 1912128639985964d8c5f1b8383e2673
-    layerID: 79
-    mosaicPosition: {x: 119, y: 826}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Hand_Sword
-    spriteName: Hand_Sword
-    isGroup: 0
-    parentIndex: 1
-    spriteID: c2f9dcffaab82ec47b040e003beaca81
-    layerID: 78
-    mosaicPosition: {x: 602, y: 910}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Warstwa 12
-    spriteName: Warstwa 12
-    isGroup: 0
-    parentIndex: 1
-    spriteID: 3a2d41ed6fe76c142818f1f7c1f8d572
-    layerID: 124
-    mosaicPosition: {x: 225, y: 727}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
   - name: Right_Lower_Arm
     spriteName: Right_Lower_Arm
     isGroup: 0
@@ -18454,10 +18394,70 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: Grupa 1
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: ba7c7b2555dc3e94e9259b029b85bfae
+    layerID: 82
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Fingers
+    spriteName: Fingers
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 307d5aa1431e6774a8469ea34e683e46
+    layerID: 81
+    mosaicPosition: {x: 4, y: 924}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sword
+    spriteName: Sword
+    isGroup: 0
+    parentIndex: 5
+    spriteID: f79c0b6b6d56d314583c1ee580020489
+    layerID: 80
+    mosaicPosition: {x: 725, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Thumb
+    spriteName: Thumb
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 1912128639985964d8c5f1b8383e2673
+    layerID: 79
+    mosaicPosition: {x: 119, y: 826}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Hand_Sword
+    spriteName: Hand_Sword
+    isGroup: 0
+    parentIndex: 5
+    spriteID: c2f9dcffaab82ec47b040e003beaca81
+    layerID: 78
+    mosaicPosition: {x: 602, y: 910}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Warstwa 12
+    spriteName: Warstwa 12
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 3a2d41ed6fe76c142818f1f7c1f8d572
+    layerID: 124
+    mosaicPosition: {x: 225, y: 727}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Warstwa 11
     spriteName: Warstwa 11
     isGroup: 0
-    parentIndex: 0
+    parentIndex: 5
     spriteID: 11ca7332cb404564cae916779fbb742d
     layerID: 122
     mosaicPosition: {x: 877, y: 823}
