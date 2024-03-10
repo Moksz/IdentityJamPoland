@@ -47,8 +47,17 @@ public class EnemyController : MonoBehaviour
             if (distance < m_StoppingDistance + 2)
             {
                 m_Animator.SetBool("Move", false);
-                m_Animator.SetBool("MoveBack", transform);
-                moveVector = 1;
+                m_Animator.SetBool("MoveBack", true);
+                if (Random.value > 0.5f)
+                {
+                    moveVector = 4;
+                    DashBackEnd();
+                }
+                else
+                {
+                    moveVector = 1;
+                }
+                
             }
             else if (distance > m_StoppingDistance + 3)
             {
@@ -103,6 +112,14 @@ public class EnemyController : MonoBehaviour
         m_Rigidbody2D.velocity = new Vector2(smoothDamp, m_Rigidbody2D.velocity.y);
     }
 
+    private IEnumerator DashBackEnd()
+    {
+        yield return new WaitForSeconds(1f);
+
+        float moveVector;
+        moveVector = 1;
+ 
+    }
     private IEnumerator ActionCoroutine()
     {
         yield return new WaitForSeconds(Random.Range(attackIntervalLow, attackIntervalHigh));
