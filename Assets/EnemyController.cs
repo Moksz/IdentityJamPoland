@@ -122,7 +122,7 @@ public class EnemyController : MonoBehaviour
     private IEnumerator ActionCoroutine()
     {
         yield return new WaitForSeconds(Random.Range(attackIntervalLow, attackIntervalHigh));
-        while (hpController.Hp > 0)
+        while (hpController.Hp > 0 && m_PlayerController.hpController.Hp > 0)
         {
             yield return new WaitUntil(() => Vector3.Distance(m_PlayerController.transform.position, transform.position) < m_StoppingDistance + 2);
 
