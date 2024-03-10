@@ -2494,7 +2494,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Maciej Tokarzewski
 
-    Art'
+    Programming'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f716181f02a5cd44ba692222b4bb860a, type: 2}
   m_sharedMaterial: {fileID: -6503060404997290055, guid: f716181f02a5cd44ba692222b4bb860a,
@@ -2764,7 +2764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pawe\u0142 Paku\u0142a\nPrograming"
+  m_text: "Pawe\u0142 Paku\u0142a\nProgramming"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f716181f02a5cd44ba692222b4bb860a, type: 2}
   m_sharedMaterial: {fileID: -6503060404997290055, guid: f716181f02a5cd44ba692222b4bb860a,
