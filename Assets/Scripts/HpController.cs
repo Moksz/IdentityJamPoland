@@ -10,6 +10,9 @@ public class HpController : MonoBehaviour
     [SerializeField] private int m_MaxHp;
     private int m_Hp;
 
+    [SerializeField] private Animation m_LoseScreen;
+
+
     public int Hp
     {
         get => m_Hp;
@@ -19,12 +22,16 @@ public class HpController : MonoBehaviour
             {
                 OnDamage.Invoke();
             }
-            
+
             if (value <= 0 && m_Hp > 0)
             {
                 OnDeath.Invoke();
+                if (m_LoseScreen)
+                {
+                    m_LoseScreen.Play();
+                }
             }
-            
+
             m_Hp = value;
             if (m_HpBar)
             {
@@ -36,7 +43,7 @@ public class HpController : MonoBehaviour
     [SerializeField] private Image m_HpBar;
 
     [FormerlySerializedAs("m_OnDeath")] public UnityEvent OnDeath;
-    [FormerlySerializedAs("m_OnDamage")] public  UnityEvent OnDamage;
+    [FormerlySerializedAs("m_OnDamage")] public UnityEvent OnDamage;
 
     // Start is called before the first frame update
     void Start()

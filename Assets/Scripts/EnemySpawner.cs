@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyController m_EnemyPrefab;
 
     [SerializeField] private TextMeshProUGUI m_CanvasNumber;
+    
+    [SerializeField] private int m_NextSceneId;
+    [SerializeField] private Animation m_WinScreen;
 
     private void Start()
     {
@@ -30,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
         if (m_NumberOfEnemies == 0)
         {
             Debug.Log("No more enemies");
+            m_WinScreen.Play();
         }
     }
 }

@@ -15124,46 +15124,6 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: prawa noga
-    spriteName: 
-    isGroup: 1
-    parentIndex: 0
-    spriteID: 38874f44a91d2ec479599d574c640bd4
-    layerID: 398
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 1
-  - name: Warstwa 25
-    spriteName: Warstwa 25
-    isGroup: 0
-    parentIndex: 5
-    spriteID: 6673425c2d587604299955c566bf08dc
-    layerID: 397
-    mosaicPosition: {x: 528, y: 4}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Warstwa 26
-    spriteName: Warstwa 26
-    isGroup: 0
-    parentIndex: 5
-    spriteID: fd035ac1660b53545a7a4bc42c3350d3
-    layerID: 396
-    mosaicPosition: {x: 410, y: 804}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Warstwa 27
-    spriteName: Warstwa 27
-    isGroup: 0
-    parentIndex: 5
-    spriteID: 798c017dd2e6dfe48ba55aee6166f730
-    layerID: 395
-    mosaicPosition: {x: 4, y: 919}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
   - name: lewa noga
     spriteName: 
     isGroup: 1
@@ -15177,7 +15137,7 @@ ScriptedImporter:
   - name: Warstwa 22
     spriteName: Warstwa 22
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 5
     spriteID: 8f3c7beec0cfcb04d859775b5b0f215b
     layerID: 392
     mosaicPosition: {x: 260, y: 804}
@@ -15187,7 +15147,7 @@ ScriptedImporter:
   - name: Warstwa 24
     spriteName: Warstwa 24
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 5
     spriteID: d2b0caaceed5cc64085305e8a282fd74
     layerID: 391
     mosaicPosition: {x: 4, y: 603}
@@ -15197,10 +15157,50 @@ ScriptedImporter:
   - name: Warstwa 23
     spriteName: Warstwa 23
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 5
     spriteID: b3d0ea6b5b3c22747a648e2ecc44fa02
     layerID: 390
     mosaicPosition: {x: 409, y: 550}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: prawa noga
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 38874f44a91d2ec479599d574c640bd4
+    layerID: 398
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Warstwa 25
+    spriteName: Warstwa 25
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 6673425c2d587604299955c566bf08dc
+    layerID: 397
+    mosaicPosition: {x: 528, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Warstwa 26
+    spriteName: Warstwa 26
+    isGroup: 0
+    parentIndex: 9
+    spriteID: fd035ac1660b53545a7a4bc42c3350d3
+    layerID: 396
+    mosaicPosition: {x: 410, y: 804}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Warstwa 27
+    spriteName: Warstwa 27
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 798c017dd2e6dfe48ba55aee6166f730
+    layerID: 395
+    mosaicPosition: {x: 4, y: 919}
     flatten: 0
     isImported: 1
     isVisible: 1
