@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CombatStateController : MonoBehaviour
 {
@@ -64,6 +65,10 @@ public class CombatStateController : MonoBehaviour
         if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
         }
     }
 

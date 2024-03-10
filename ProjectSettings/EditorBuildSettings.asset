@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Grunwald.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Deluge.unity
+    guid: 28c5d5d9e025cc7439c92e0ab42c54cc
   m_configObjects: {}

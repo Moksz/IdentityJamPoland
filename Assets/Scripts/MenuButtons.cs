@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
-    public void StartGame()
+    public void StartGame(int id)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(id);
     }
 
     public void ExitGame()
