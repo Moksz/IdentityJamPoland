@@ -1103,6 +1103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6393cc043e2ba3a4eae54259c53ab01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordController: {fileID: 2910011410204275655}
 --- !u!114 &211775580273209506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,11 +1116,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6c61f9051f83b4c879ffff5ba9429d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHp: 0
+  m_MaxHp: 3
   m_HpBar: {fileID: 0}
   m_OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4907510566531388112}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: PlayDeathAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -1191,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c802ce4e7378e7d4a8e51aa800585b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatStateController: {fileID: 6763538766827957711}
+  enemyCharacter: {fileID: 0}
 --- !u!1 &6962576438362159994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4519537183621174618, guid: 5b70fea594f318e4188ea8dced0e9d78,

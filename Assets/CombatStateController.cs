@@ -41,7 +41,7 @@ public class CombatStateController : MonoBehaviour
                 // if (combatStateController.attack)
                 // {
                 if (combatState == CombatState.HighAttack && playerController.combatStateController.combatState != CombatState.HighDefence ||
-                    combatState == CombatState.LowAttack && playerController.combatStateController.combatState != CombatState.LowAttack)
+                    combatState == CombatState.LowAttack && playerController.combatStateController.combatState != CombatState.LowDefence)
                 {
                     playerController.hpController.Hp -= 1;
                     Debug.Log("player damaged");
@@ -53,6 +53,11 @@ public class CombatStateController : MonoBehaviour
                 // }
             }
         }
+    }
+
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
     }
 
     private void OnValidate()

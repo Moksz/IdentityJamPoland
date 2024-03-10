@@ -19,15 +19,15 @@ public class HpController : MonoBehaviour
                 m_OnDamage.Invoke();
             }
             
+            if (value <= 0 && m_Hp > 0)
+            {
+                m_OnDeath.Invoke();
+            }
+            
             m_Hp = value;
             if (m_HpBar)
             {
                 m_HpBar.fillAmount = (float)m_Hp / m_MaxHp;
-            }
-            
-            if (value <= 0)
-            {
-                m_OnDeath.Invoke();
             }
         }
     }

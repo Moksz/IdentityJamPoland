@@ -22,7 +22,9 @@ public class EnemyController : MonoBehaviour
 
     private float m_SmoothMovementCurrentVelocity;
 
-    
+
+    private bool m_DashCooldown;
+    private bool m_Dash;
 
     // Start is called before the first frame update
     void Start()
@@ -40,72 +42,60 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         float moveVector;
-
-        if (m_PlayerController.combatStateController.combatState is CombatState.LowAttack or CombatState.HighAttack)
+        if (hpController.Hp <= 0)
         {
-            float distance = Vector3.Distance(m_PlayerController.transform.position, transform.position);
-            if (distance < m_StoppingDistance + 2)
-            {
-                m_Animator.SetBool("Move", false);
-                m_Animator.SetBool("MoveBack", true);
-                if (Random.value > 0.5f)
-                {
-                    moveVector = 4;
-                    DashBackEnd();
-                }
-                else
-                {
-                    moveVector = 1;
-                }
-                
-            }
-            else if (distance > m_StoppingDistance + 3)
-            {
-                m_Animator.SetBool("Move", true);
-                m_Animator.SetBool("MoveBack", false);
-                moveVector = -1;
-            }
-            else
-            {
-                m_Animator.SetBool("Move", false);
-                m_Animator.SetBool("MoveBack", false);
-                moveVector = 0;
-            }
+            m_Animator.SetBool("Move", false);
+            m_Animator.SetBool("MoveBack", false);
+            moveVector = 0;
         }
         else
         {
-            if (Vector3.Distance(m_PlayerController.transform.position, transform.position) > m_StoppingDistance)
+            if (m_PlayerController.combatStateController.combatState is CombatState.LowAttack or CombatState.HighAttack)
             {
-                m_Animator.SetBool("Move", true);
-                m_Animator.SetBool("MoveBack", false);
-                moveVector = -1;
+                float distance = Vector3.Distance(m_PlayerController.transform.position, transform.position);
+                if (distance < m_StoppingDistance + 2)
+                {
+                    m_Animator.SetBool("Move", false);
+                    m_Animator.SetBool("MoveBack", true);
+
+                    if (m_DashCooldown == false)
+                    {
+                        m_DashCooldown = true;
+                        StartCoroutine(DashBackEnd());
+                    }
+
+                    moveVector = m_Dash ? 3 : 1;
+                }
+                else if (distance > m_StoppingDistance + 3)
+                {
+                    m_Animator.SetBool("Move", true);
+                    m_Animator.SetBool("MoveBack", false);
+                    moveVector = -1;
+                }
+                else
+                {
+                    m_Animator.SetBool("Move", false);
+                    m_Animator.SetBool("MoveBack", false);
+                    moveVector = 0;
+                }
             }
             else
             {
-                m_Animator.SetBool("Move", false);
-                m_Animator.SetBool("MoveBack", false);
-                moveVector = 0;
+                if (Vector3.Distance(m_PlayerController.transform.position, transform.position) > m_StoppingDistance)
+                {
+                    m_Animator.SetBool("Move", true);
+                    m_Animator.SetBool("MoveBack", false);
+                    moveVector = -1;
+                }
+                else
+                {
+                    m_Animator.SetBool("Move", false);
+                    m_Animator.SetBool("MoveBack", false);
+                    moveVector = 0;
+                }
             }
         }
 
-        // if (Vector3.Distance(m_PlayerController.transform.position, transform.position) < m_StoppingDistance + 3 &&
-        //     m_PlayerController.combatStateController.combatState is CombatState.LowAttack or CombatState.HighAttack)
-        // {
-        //     m_Animator.SetBool("Move", false);
-        //     m_Animator.SetBool("MoveBack", true);
-        //     moveVector = 1;
-        // }
-        // else if (Vector3.Distance(m_PlayerController.transform.position, transform.position) > m_StoppingDistance)
-        // {
-        //     m_Animator.SetBool("Move", true);
-        //     m_Animator.SetBool("MoveBack", false);
-        //     moveVector = -1;
-        // }
-        // else
-        // {
-        //     m_Animator.SetBool("Move", false);
-        //     moveVector = 0;
-        // }
 
         float smoothDamp = Mathf.SmoothDamp(m_Rigidbody2D.velocity.x, moveVector * m_MoveSpeed, ref m_SmoothMovementCurrentVelocity, 0.1f);
 
@@ -114,12 +104,21 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator DashBackEnd()
     {
-        yield return new WaitForSeconds(1f);
-
-        float moveVector;
-        moveVector = 1;
- 
+        if (Random.value > 0.5f)
+        {
+            m_Dash = true;
+            yield return new WaitForSeconds(0.25f);
+            m_Dash = false;
+            yield return new WaitForSeconds(3f);
+            m_DashCooldown = false;
+        }
+        else
+        {
+            m_DashCooldown = false;
+            yield return new WaitForSeconds(3f);
+        }
     }
+
     private IEnumerator ActionCoroutine()
     {
         yield return new WaitForSeconds(Random.Range(attackIntervalLow, attackIntervalHigh));
@@ -167,6 +166,11 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PlayDeathAnimation()
+    {
+        m_Animator.SetTrigger("Death");
     }
 
     private void OnValidate()
