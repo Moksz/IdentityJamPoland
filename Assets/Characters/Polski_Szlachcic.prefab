@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Animator: {fileID: 4863066910635515526}
   hpController: {fileID: 3236613728843387630}
   combatStateController: {fileID: 2426543822560180380}
-  m_MoveSpeed: 5
+  m_MoveSpeed: 4
   m_SmoothTime: 0.1
 --- !u!50 &7138880688207237667
 Rigidbody2D:

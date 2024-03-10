@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI m_CanvasNumber;
     
-    [SerializeField] private int m_NextSceneId;
     [SerializeField] private Animation m_WinScreen;
 
     private void Start()
@@ -22,9 +21,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnNextEnemy()
     {
+        m_NumberOfEnemies--;
         m_CanvasNumber.text = m_NumberOfEnemies.ToString();
 
-        m_NumberOfEnemies--;
         if (m_NumberOfEnemies > 0)
         {
             EnemyController enemy = Instantiate(m_EnemyPrefab, transform.position, Quaternion.identity);

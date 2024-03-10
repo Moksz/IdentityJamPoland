@@ -4732,7 +4732,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 3
+  m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -9495,7 +9495,6 @@ MonoBehaviour:
   m_EnemyPrefab: {fileID: 4907510566531388112, guid: 5dfbe362317fc4b438f22ccce81fa70e,
     type: 3}
   m_CanvasNumber: {fileID: 2023485336}
-  m_NextSceneId: 3
   m_WinScreen: {fileID: 1696701266}
 --- !u!1 &1407527052
 GameObject:
@@ -14394,134 +14393,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944636690}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1959061407
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8452426248194835157, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_Name
-      value: Particle System (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5112135
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.5112135
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.48852924
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.48852924
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -2.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742969423800330376, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: scalingMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: NoiseModule.frequency
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: TrailModule.worldSpace
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: InitialModule.rotation3D
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: TrailModule.textureScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: TrailModule.textureScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: NoiseModule.strength.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: ShapeModule.randomDirectionAmount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: TrailModule.widthOverTrail.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: InitialModule.startRotation.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119606761009544934, guid: 295d40d6755095e4f949cbebce966c03,
-        type: 3}
-      propertyPath: TrailModule.colorOverLifetime.maxColor.a
-      value: 0.23529412
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 295d40d6755095e4f949cbebce966c03, type: 3}
 --- !u!1 &1960749130
 GameObject:
   m_ObjectHideFlags: 0
@@ -16162,7 +16033,6 @@ SceneRoots:
   - {fileID: 237690757}
   - {fileID: 1133142450}
   - {fileID: 1806366388}
-  - {fileID: 1959061407}
   - {fileID: 63615576}
   - {fileID: 1360740722}
   - {fileID: 40406822}

@@ -7,6 +7,8 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
 {
+    private MainPlayerInput m_Input;
+    
     [SerializeField] private Rigidbody2D m_Rigidbody2D;
     [SerializeField] private Animator m_Animator;
     public HpController hpController;
@@ -23,9 +25,9 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
     // Start is called before the first frame update
     void Start()
     {
-        MainPlayerInput input = new();
-        input.Player.AddCallbacks(this);
-        input.Player.Enable();
+        m_Input = new MainPlayerInput();
+        m_Input.Player.AddCallbacks(this);
+        m_Input.Player.Enable();
     }
 
     private void FixedUpdate()
@@ -55,6 +57,12 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
         if (!m_Animator) m_Animator = GetComponent<Animator>();
         if (!combatStateController) combatStateController = GetComponent<CombatStateController>();
         if (!hpController) hpController = GetComponent<HpController>();
+    }
+
+    private void OnDestroy()
+    {
+        m_Input.Player.AddCallbacks(this);
+        m_Input.Player.Disable();
     }
 
     public void OnMove(InputAction.CallbackContext context)

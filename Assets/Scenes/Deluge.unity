@@ -5401,7 +5401,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 3
+  m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -15773,7 +15773,6 @@ MonoBehaviour:
   m_EnemyPrefab: {fileID: 2099769242920680762, guid: 26998c1959e529f49b8ad5092e5c64b5,
     type: 3}
   m_CanvasNumber: {fileID: 2023485336}
-  m_NextSceneId: 0
   m_WinScreen: {fileID: 990412813}
 --- !u!1 &1407527052
 GameObject:
