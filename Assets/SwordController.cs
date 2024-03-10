@@ -1,15 +1,51 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SwordController : MonoBehaviour
 {
-    public CombatStateController combatState;
+    // public CombatStateController combatStateController;
 
-    private void OnValidate()
+
+    public GameObject enemyCharacter;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!combatState) combatState = GetComponentInParent<CombatStateController>();
+        if (gameObject.layer == LayerMask.NameToLayer("PlayerSword"))
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                enemyCharacter = other.gameObject;
+            }
+        }
+        else if (gameObject.layer == LayerMask.NameToLayer("EnemySword"))
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                enemyCharacter = other.gameObject;
+            }
+        }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (gameObject.layer == LayerMask.NameToLayer("PlayerSword"))
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                enemyCharacter = null;
+            }
+        }
+        else if (gameObject.layer == LayerMask.NameToLayer("EnemySword"))
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                enemyCharacter = null;
+            }
+        }
+    }
+
+    // private void OnValidate()
+    // {
+    //     if (!combatStateController) combatStateController = GetComponentInParent<CombatStateController>();
+    // }
 }

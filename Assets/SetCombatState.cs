@@ -5,6 +5,7 @@ using UnityEngine;
 public class SetCombatState : StateMachineBehaviour
 {
     [SerializeField] private CombatState m_CombatState;
+    // [SerializeField] private bool m_Attack;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -13,6 +14,7 @@ public class SetCombatState : StateMachineBehaviour
         if (animator.TryGetComponent(out CombatStateController combatStateController))
         {
             combatStateController.combatState = m_CombatState;
+            // combatStateController.attack = m_Attack;
         }
     }
 

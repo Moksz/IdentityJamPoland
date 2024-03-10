@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_Rigidbody2D;
     [SerializeField] private Animator m_Animator;
+    public HpController hpController;
+    public CombatStateController combatStateController;
 
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private float m_StoppingDistance;
@@ -20,7 +22,7 @@ public class EnemyController : MonoBehaviour
 
     private float m_SmoothMovementCurrentVelocity;
 
-    public CombatStateController combatStateController;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +59,7 @@ public class EnemyController : MonoBehaviour
             else
             {
                 m_Animator.SetBool("Move", false);
+                m_Animator.SetBool("MoveBack", false);
                 moveVector = 0;
             }
         }
@@ -71,6 +74,7 @@ public class EnemyController : MonoBehaviour
             else
             {
                 m_Animator.SetBool("Move", false);
+                m_Animator.SetBool("MoveBack", false);
                 moveVector = 0;
             }
         }
@@ -153,5 +157,6 @@ public class EnemyController : MonoBehaviour
         if (!m_Rigidbody2D) m_Rigidbody2D = GetComponent<Rigidbody2D>();
         if (!m_Animator) m_Animator = GetComponent<Animator>();
         if (!combatStateController) combatStateController = GetComponent<CombatStateController>();
+        if (!hpController) hpController = GetComponent<HpController>();
     }
 }

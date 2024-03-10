@@ -9,13 +9,14 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
 {
     [SerializeField] private Rigidbody2D m_Rigidbody2D;
     [SerializeField] private Animator m_Animator;
+    public HpController hpController;
+    public CombatStateController combatStateController;
 
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private float m_SmoothTime;
 
     private Vector2 m_MoveVector;
 
-    public CombatStateController combatStateController;
 
     // [SerializeField] private Transform m_SwordMagnitudeClamp;
     // [SerializeField] private float m_SwordMoveSens;
@@ -100,6 +101,7 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
         if (!m_Rigidbody2D) m_Rigidbody2D = GetComponent<Rigidbody2D>();
         if (!m_Animator) m_Animator = GetComponent<Animator>();
         if (!combatStateController) combatStateController = GetComponent<CombatStateController>();
+        if (!hpController) hpController = GetComponent<HpController>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
