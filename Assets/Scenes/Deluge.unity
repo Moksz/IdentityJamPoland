@@ -15747,7 +15747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NumberOfEnemies: 6
-  m_EnemyPrefab: {fileID: 4907510566531388112, guid: 5dfbe362317fc4b438f22ccce81fa70e,
+  m_EnemyPrefab: {fileID: 2099769242920680762, guid: 26998c1959e529f49b8ad5092e5c64b5,
     type: 3}
   m_CanvasNumber: {fileID: 2023485336}
 --- !u!1 &1407527052

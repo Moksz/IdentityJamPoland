@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
         if (hpController.Hp <= 0)
         {
             m_Rigidbody2D.velocity = Vector2.zero;
+            m_Animator.SetBool("Move", false);
+            m_Animator.SetBool("MoveBack", false);
         }
         else
         {
@@ -57,22 +59,25 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        m_MoveVector = context.ReadValue<float>();
-
-        switch (m_MoveVector)
+        if (hpController.Hp > 0)
         {
-            case 0:
-                m_Animator.SetBool("Move", false);
-                m_Animator.SetBool("MoveBack", false);
-                break;
-            case > 0:
-                m_Animator.SetBool("Move", true);
-                m_Animator.SetBool("MoveBack", false);
-                break;
-            case < 0:
-                m_Animator.SetBool("Move", false);
-                m_Animator.SetBool("MoveBack", true);
-                break;
+            m_MoveVector = context.ReadValue<float>();
+
+            switch (m_MoveVector)
+            {
+                case 0:
+                    m_Animator.SetBool("Move", false);
+                    m_Animator.SetBool("MoveBack", false);
+                    break;
+                case > 0:
+                    m_Animator.SetBool("Move", true);
+                    m_Animator.SetBool("MoveBack", false);
+                    break;
+                case < 0:
+                    m_Animator.SetBool("Move", false);
+                    m_Animator.SetBool("MoveBack", true);
+                    break;
+            }
         }
     }
 
