@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CombatStateController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CombatStateController : MonoBehaviour
     // [NonSerialized] public bool attack;
     public SwordController swordController;
 
+    public UnityEvent OnAttackBlocked;
 
     public void DealDamage()
     {
@@ -29,6 +31,7 @@ public class CombatStateController : MonoBehaviour
                 else
                 {
                     Debug.Log("enemy blocked attack");
+                    OnAttackBlocked.Invoke();
                 }
                 // }
             }
@@ -49,6 +52,7 @@ public class CombatStateController : MonoBehaviour
                 else
                 {
                     Debug.Log("player blocked attack");
+                    OnAttackBlocked.Invoke();
                 }
                 // }
             }

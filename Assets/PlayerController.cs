@@ -44,13 +44,17 @@ public class PlayerController : MonoBehaviour, MainPlayerInput.IPlayerActions
 
     private void FixedUpdate()
     {
+        if (hpController.Hp <= 0)
+        {
+            m_Rigidbody2D.velocity = Vector2.zero;
+        }
+        else
+        {
+            float smoothDamp = Mathf.SmoothDamp(m_Rigidbody2D.velocity.x, m_MoveVector.x * m_MoveSpeed, ref m_SmoothMovementCurrentVelocity, m_SmoothTime);
+            m_Rigidbody2D.velocity = new Vector2(smoothDamp, m_Rigidbody2D.velocity.y);
+        }
+
         // float x = m_MoveVector.x * m_MoveSpeed * Time.deltaTime;
-
-        float smoothDamp = Mathf.SmoothDamp(m_Rigidbody2D.velocity.x, m_MoveVector.x * m_MoveSpeed, ref m_SmoothMovementCurrentVelocity, m_SmoothTime);
-
-        m_Rigidbody2D.velocity = new Vector2(smoothDamp, m_Rigidbody2D.velocity.y);
-
-
         // m_SwordTransform.position = ConvertScreenToPlanePoint(m_SwordTargetPosition);
     }
 
