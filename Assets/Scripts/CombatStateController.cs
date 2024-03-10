@@ -61,7 +61,10 @@ public class CombatStateController : MonoBehaviour
 
     public void DestroyGameObject()
     {
-        Destroy(gameObject);
+        if (gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnValidate()
